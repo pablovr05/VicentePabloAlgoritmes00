@@ -8,14 +8,12 @@ public class Person {
     private String cognom;
     private int edat;
 
-    // Private constructor for Singleton
     private Person(String nom, String cognom, int edat) {
         this.nom = nom;
         this.cognom = cognom;
         this.edat = edat;
     }
 
-    // Normal Singleton instance getter
     public static Person getInstance(String nom, String cognom, int edat) {
         if (instance == null) {
             instance = new Person(nom, cognom, edat);
@@ -23,10 +21,9 @@ public class Person {
         return instance;
     }
 
-    // Method to 'hack' the Singleton and get a new instance
     public static Person getNewDestroyedInstance(String nom, String cognom, int edat) {
-        instance = null; // Destroy the previous instance
-        return new Person(nom, cognom, edat); // Create a new one
+        instance = null; 
+        return new Person(nom, cognom, edat); 
     }
 
     @Override
